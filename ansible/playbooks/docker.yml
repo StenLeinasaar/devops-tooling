@@ -1,0 +1,7 @@
+---
+- name: Install Docker
+  hosts: all
+  become: true
+  tasks:
+    - name: Include OS specific tasks
+      ansible.builtin.include_tasks: "../tasks/{{ ansible_distribution | lower }}/docker.yml"
