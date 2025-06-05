@@ -1,0 +1,25 @@
+# Global Ansible variables for Docker installation
+
+# Packages required before installing Docker
+docker_prereq_packages:
+  - apt-transport-https
+  - ca-certificates
+  - curl
+  - gnupg
+  - software-properties-common
+
+# GPG key URL used to verify Docker packages
+docker_gpg_key_url: https://download.docker.com/linux/ubuntu/gpg
+
+# Repository base URL and architecture for Docker packages
+docker_repo_url: https://download.docker.com/linux/ubuntu
+docker_repo_arch: amd64
+# Use the detected distribution release by default
+docker_repo_release: "{{ ansible_distribution_release }}"
+
+docker_packages:
+  - docker-ce
+  - docker-ce-cli
+  - containerd.io
+
+docker_service_name: docker
